@@ -1,0 +1,23 @@
+metadata:
+  language: v1-beta
+  name: "Java Serialized Cookie"
+  description: "Java Serialized Cookie"
+  author: "aludermin"
+  tags: "deserialization", "passive"
+
+given response then
+    if {latest.response} matches "Set-Cookie:.*H4sIAAAAAAAA" then
+        report issue:
+            severity: high
+            confidence: firm
+            detail: "Java Serialized Cookie detected - compressed with gzip and base64 encoded"
+            remediation: "Check for deserialization vulnerabilities"
+    end if
+
+		if {latest.response} matches "Set-Cookie:.*^rO0" then
+        report issue:
+            severity: high
+            confidence: firm
+            detail: "Java Serialized Cookie - base64 encoded"
+            remediation: "Check for deserialization vulnerabilities"
+    end if

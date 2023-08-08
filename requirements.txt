@@ -1,0 +1,7 @@
+subprocess
+os
+gzip
+urllib.parse
+base64
+argparse
+pyperclip
