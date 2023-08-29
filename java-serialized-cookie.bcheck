@@ -14,7 +14,7 @@ given response then
             remediation: "Check for deserialization vulnerabilities"
     end if
 
-		if {latest.response} matches "Set-Cookie:.*^rO0" then
+		if {latest.response} matches "Set-Cookie:.*rO0" then
         report issue:
             severity: high
             confidence: firm
